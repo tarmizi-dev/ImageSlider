@@ -5,21 +5,127 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageSlider"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920" WindowStyle="None" Opacity="1"> 
-    <Grid x:Name="gdMainWindow" Height="1080" Width="1920" Background="Transparent">
+        Title="MainWindow" Height="1080" Width="1920" WindowStyle="None" Opacity="1" Loaded="MainWindow_Load">
+    <Grid x:Name="gdMainWindow" Height="1080" Width="1920" Background="#1E1E1E">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="330"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Background="#1E1E1E">
+            <Border BorderThickness="1" BorderBrush="#F0F0F7" Opacity="0.6"/>
+            <TextBlock Name="txtApplicationName" Text="MZ Travel" FontFamily="Arial" FontSize="16" FontWeight="Bold" Foreground="#FCFCFC" Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Background="Transparent" VerticalAlignment="Bottom" Margin="0,0,160,20">
+            <StackPanel x:Name="spBtnList" Background="Transparent" MinWidth="400" Height="40" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <!--Button Home-->
+                <Viewbox Name="BtnHome" Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Border x:Name="bdrBtnhome" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnHome" Text="HOME" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button Holidays-->
+                <Viewbox Name="BtnHolidays" Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnHolidays" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnHolidays" Text="HOLIDAYS" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button Destinations-->
+                <Viewbox Name="BtnDestinations" Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnDestinations" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnDestinations" Text="DESTINATIONS" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button Flights-->
+                <Viewbox Name="BtnFlights" Height="{Binding ElementName=spBtnList, Path=Height}"  MinWidth="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnFlights" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnFlights" Text="FLIGHTS" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button Offers-->
+                <Viewbox Name="BtnOffers" Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnOffers" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnOffers" Text="OFFERS" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button Contact-->
+                <Viewbox Name="BtnContact" Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnContact" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnContact" Text="CONTACT" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button Search-->
+                <Viewbox Name="BtnSearch" Opacity="0.1" Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnSearch" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnSearch" Text="Search" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
+                <!--Button User-->
+                <Viewbox Name="BtnUser" Opacity="0.1" Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" Margin="5,0,5,0">
+                    <Grid Height="{Binding ElementName=spBtnList, Path=Height}"  Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border x:Name="bdrBtnUser" Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"/>
+                        <TextBlock x:Name="txtBtnUser" Text="User" Foreground="#E0E0E0" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"/>
+                    </Grid>
+                </Viewbox>
 
-        <Grid Grid.Row="0" Grid.Column="0" Background="Pink"/>
-        <Grid Grid.Row="0" Grid.Column="1" Background="Red"/>
-        <Grid Grid.Row="1" Grid.Column="0" Background="White"/>
-        <Grid Grid.Row="1" Grid.Column="1" Background="Black"/>
-        
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent">
+            <Border BorderThickness="1" BorderBrush="#F0F0F7" Opacity="0.6"/>
+            <ScrollViewer Background="Transparent" BorderThickness="0" Height="240" Width="880" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,150,200"  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="spIMageList" Height="220" MinWidth="800"  Background="Transparent" Orientation="Horizontal">
+                    <Border Width="200" Height="220" Background="Red" Margin="10,0,10,0" BorderThickness="0" CornerRadius="10">
+                        <Grid Width="200" Height="220">
+                            <Image/>
+                            <TextBlock Text="1" FontSize="140" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border Width="200" Height="220" Background="Yellow" Margin="10,0,10,0" BorderThickness="0" CornerRadius="10">
+                        <Grid Width="200" Height="220">
+                            <Image/>
+                            <TextBlock Text="2" FontSize="140" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border Width="200" Height="220" Background="Red" Margin="10,0,10,0" BorderThickness="0" CornerRadius="10">
+                        <Grid Width="200" Height="220">
+                            <Image/>
+                            <TextBlock Text="3" FontSize="140" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border Width="200" Height="220" Background="Yellow" Margin="10,0,10,0" BorderThickness="0" CornerRadius="10">
+                        <Grid Width="200" Height="220">
+                            <Image/>
+                            <TextBlock Text="4" FontSize="140" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border Width="200" Height="220" Background="Red" Margin="10,0,10,0" BorderThickness="0" CornerRadius="10">
+                        <Grid Width="200" Height="220">
+                            <Image/>
+                            <TextBlock Text="5" FontSize="140" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border Width="200" Height="220" Background="Yellow" Margin="10,0,10,0" BorderThickness="0" CornerRadius="10">
+                        <Grid Width="200" Height="220">
+                            <Image/>
+                            <TextBlock Text="6" FontSize="140" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+            <Border x:Name="borderImage">
+                <Image x:Name="ImageName"/>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

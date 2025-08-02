@@ -24,5 +24,20 @@ namespace ImageSlider
         {
             InitializeComponent();
         }
+
+        private void MainWindow_Load(object sender, RoutedEventArgs e)
+        {
+            double value = 0.4;
+            this.Left = 0;
+            this.Top = 0;
+            //this.Height = Height * value;
+            //this.Width = Width * value;
+
+            //MainCanvas.Height = MainCanvas.Height * value;
+            //MainCanvas.Width = MainCanvas.Width * value;
+
+            //gdMainWindow.Height = gdMainWindow.Height * value;
+            //gdMainWindow.Width = gdMainWindow.Width * value;
+        }
     }
 }
