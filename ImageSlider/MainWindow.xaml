@@ -8,40 +8,7 @@
         Title="MainWindow" Height="1080" Width="1920" WindowStyle="None" Opacity="1" Loaded="MainWindow_Load"
         PreviewKeyDown="MainWindow_PreviewKeyDown"
         PreviewTouchDown="MainWindow_PreviewTouchDown"
-        PreviewTouchUp="MainWindow_PreviewTouchUp"
-        PreviewMouseDown="MainWindow_PreviewMouseDown"
-        Closed="MainWindow_Closed">
-    <Window.Resources>
-        <!--Left/right arrow: a tall transparent strip at the screen edge.
-            The whole strip is the touch target; the circle is only drawn on top of it.
-            Hidden by default; shown by code when the screen is touched.-->
-        <Style x:Key="EdgeArrowStyle" TargetType="Button">
-            <Setter Property="Width" Value="140"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="40"/>
-            <Setter Property="Focusable" Value="False"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid Background="Transparent">
-                            <Border x:Name="Ring" Width="72" Height="72" CornerRadius="36"
-                                    BorderBrush="White" BorderThickness="1" Background="#33000000"
-                                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,6"/>
-                            </Border>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="Ring" Property="Background" Value="White"/>
-                                <Setter Property="Foreground" Value="#1E1E1E"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
+        PreviewTouchUp="MainWindow_PreviewTouchUp">
     <Grid x:Name="gdMainWindow" Height="1080" Width="1920" Background="#1E1E1E">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="330"/>
@@ -162,14 +129,6 @@
             <Border x:Name="borderImage">
                 <Image x:Name="ImageName"/>
             </Border>
-            <!--Arrow buttons: hidden until the screen is touched, then fade out after 3 seconds.
-                Keyboard users press Left/Right instead.-->
-            <Grid x:Name="gdArrows" Opacity="0">
-                <Button x:Name="btnPrevious" Style="{StaticResource EdgeArrowStyle}" Content="‹"
-                        HorizontalAlignment="Left" AutomationProperties.Name="Previous slide" Click="BtnPrevious_Click"/>
-                <Button x:Name="btnNext" Style="{StaticResource EdgeArrowStyle}" Content="›"
-                        HorizontalAlignment="Right" AutomationProperties.Name="Next slide" Click="BtnNext_Click"/>
-            </Grid>
         </Grid>
     </Grid>
 </Window>
